@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.Date;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,20 +14,29 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Setter
 @Getter
+@Table(name = "transactions")
 @Entity
-@Table(name = "users")
-public class User {
+public class Transaction {
   @Id
   @EqualsAndHashCode.Include
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "user_name")
-  private String name;
+  @Column(name = "transaction_amount")
+  private Double amount;
 
-  @Column(name = "user_email")
-  private String email;
+  @Column(name = "transaction_description")
+  private String description;
 
-  @Column(name = "user_pwd")
-  private String password;
+  @Column(name = "transaction_date")
+  private Date date;
+
+  @Column(name = "transaction_type")
+  private String type;
+
+  @Column(name = "transaction_category_id")
+  private Long categoryId;
+
+  @Column(name = "transaction_user_id")
+  private Long userId;
 }

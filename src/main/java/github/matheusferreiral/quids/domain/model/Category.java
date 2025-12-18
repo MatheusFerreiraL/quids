@@ -13,20 +13,17 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Setter
 @Getter
+@Table(name = "categories")
 @Entity
-@Table(name = "users")
-public class User {
+public class Category {
   @Id
   @EqualsAndHashCode.Include
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "user_name")
+  @Column(name = "category_name")
   private String name;
 
-  @Column(name = "user_email")
-  private String email;
-
-  @Column(name = "user_pwd")
-  private String password;
+  @Column(name = "category_description")
+  private String description;
 }
